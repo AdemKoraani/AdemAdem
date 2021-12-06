@@ -36,12 +36,7 @@ jobs:
           repository: ademkoraani/docker_push
           tag_with_ref: true
           
-      - name: 'log untrusted output'
-        run: |
-          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-          echo "untrusted output"
-          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-        
+          
       - name: 'Write Config & Key Files'
         run: |
           mkdir ~/.oci
@@ -56,7 +51,7 @@ jobs:
           
       - name: 'Install OCI CLI'
         env: 
-          ACTION_ALLOW_UNSECURE_COMMAND: 'true' 
+          ACTION_ALLOW_UNSECURE_COMMANDS: 'true' 
         run: |
           curl -L -O https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh
           chmod +x install.sh
@@ -64,10 +59,12 @@ jobs:
           echo "::add-path::/home/runner/bin"
           exec -l $SHELL
           
+          
       - name: 'Fix Config File Permissions'
         run: |
           oci setup repair-file-permissions --file /home/runner/.oci/config
           oci setup repair-file-permissions --file /home/runner/.oci/key.pem
+          
           
       - name: 'Download the KUBECONFIG'
         run: |
@@ -75,6 +72,7 @@ jobs:
           oci ce cluster create-kubeconfig --cluster-id ${{ secrets.OKE_OCID }} --file ~/.kube/config --region ${{secrets.OCI_REGION}} --token-version 2.0.0 
           export KUBECONFIG=~/.kube/config
           exec -l $SHELL
+        
         
       - name: 'Deploy the API on OKE'
         run: |
