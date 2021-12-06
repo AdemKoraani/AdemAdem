@@ -1,2 +1,2 @@
 FROM nginx 
-COPY ./text.html /...
+COPY ./text.html /ademkoraani/docker_push
