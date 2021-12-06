@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    
+env:
+  IMAGE_NAME: ademkoraani/docker_push:testing
+  DEPLOYMENT_NAME: docker_push 
+  PORT: 5000
 
 jobs:
 
@@ -26,18 +31,15 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          username: ademkoraani
-          password: adeem0225*
+          username: ${{ secrets.DOCKER_HUB_ADEMADEM }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           repository: ademkoraani/docker_push
           tag_with_ref: true
           
       - name: 'log untrusted output'
         run: |
-          # disable command workflow processing
           echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-          # log untrusted output
           echo "untrusted output"
-          # enable workflow command processing
           echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
         
       - name: 'Write Config & Key Files'
