@@ -51,7 +51,7 @@ jobs:
           
       - name: 'Install OCI CLI'
         env: 
-          ACTION_ALLOW_UNSECURE_COMMANDS: 'true' 
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
         run: |
           curl -L -O https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh
           chmod +x install.sh
