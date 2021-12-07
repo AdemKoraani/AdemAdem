@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main ]
     
+env:
+  IMAGE_NAME: ademkoraani/docker_push:test
+  DEPLOYMENT_NAME: docker_push
+  PORT: 5000
+  
 jobs:
 
   build:
