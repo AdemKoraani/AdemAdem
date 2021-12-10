@@ -1,2 +1,2 @@
 FROM nginx 
-COPY ./text.html ademkoraani/docker_push:testing
+COPY ./text.html ademkoraani/github:latest
