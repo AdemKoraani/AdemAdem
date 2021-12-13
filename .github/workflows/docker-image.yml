@@ -6,11 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env: 
-  IMAGE_NAME: ademkoraani/github:latest
-  DEPLOYMENT_NAME: text.html
-  PORT: 5000
-
 jobs:
 
   build:
