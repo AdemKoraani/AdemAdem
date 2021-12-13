@@ -7,8 +7,8 @@ on:
     branches: [ main ]
     
 env:
-  IMAGE_NAME: AdemAdem/nginx:latest 
-  DEPLOYMENT_NAME: nginx
+  IMAGE_NAME: ademkoraani/github:latest 
+  DEPLOYMENT_NAME: github
   PORT: 5000
 
 
