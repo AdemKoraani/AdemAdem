@@ -8,7 +8,7 @@ on:
     
 env:
   IMAGE_NAME: AdemAdem/nginx:latest 
-  DEPLOYMENT_NAME: text.html
+  DEPLOYMENT_NAME: nginx
   PORT: 5000
 
 
