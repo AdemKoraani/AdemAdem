@@ -1,2 +1,2 @@
 FROM nginx 
-COPY text.html ademkoraani/github:latest
+COPY ./text.html /usr/share/nginx/html 
