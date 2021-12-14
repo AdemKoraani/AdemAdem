@@ -1,2 +1,2 @@
 FROM nginx 
-COPY AdemAdem/text.html ademkoraani/github:latest
+COPY text.html ademkoraani/github:latest
