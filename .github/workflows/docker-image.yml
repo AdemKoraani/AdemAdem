@@ -34,8 +34,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          username: ademkoraani
-          password: adeem0225*
+          username: ${{secrets.DOCKER_HUB_ADEMADEM}}
+          password: £{{secrets.DOCKER_HUB_ACCESS_TOKEN}}
           repository: ademkoraani/github 
           tag_with_ref: true
                   
