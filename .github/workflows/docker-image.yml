@@ -8,7 +8,7 @@ on:
     
 env:
   IMAGE_NAME: ademkoraani/github:latest 
-  DEPLOYMENT_NAME: ngnix-deployment
+  DEPLOYMENT_NAME: ngnix-01
   PORT: 5000
 
 
